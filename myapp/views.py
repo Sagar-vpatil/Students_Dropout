@@ -13,3 +13,13 @@ def morris(request):
     
 def chartjs(request):
     return render(request,'chartjs.html')
+
+def chartist(request):
+    return render(request,'chartist.html')
+
+def sparkline(request):
+    return render(request,'sparkline.html')
+
+def peity(request):
+    return render(request,'peity.html')
+

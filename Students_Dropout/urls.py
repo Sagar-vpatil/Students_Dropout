@@ -24,4 +24,8 @@ urlpatterns = [
     path('flot',views.flot,name='flot'),
     path('morris',views.morris,name='morris'),
     path('chartjs',views.chartjs,name='chartjs'),
+    path('chartist',views.chartist,name='chartist'),
+    path('sparkline',views.sparkline,name='sparkline'),
+    path('peity',views.peity,name='peity'),
+   
 ]
