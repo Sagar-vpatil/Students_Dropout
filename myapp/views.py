@@ -7,3 +7,6 @@ def index(request):
 
 def flot(request):
     return render(request,'flot.html')
+
+def morris(request):
+    return render(request,'morris.html')
