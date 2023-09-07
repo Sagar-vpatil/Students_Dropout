@@ -10,3 +10,6 @@ def flot(request):
 
 def morris(request):
     return render(request,'morris.html')
+    
+def chartjs(request):
+    return render(request,'chartjs.html')

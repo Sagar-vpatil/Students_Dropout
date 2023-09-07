@@ -23,4 +23,5 @@ urlpatterns = [
     path('',views.index,name='home'),
     path('flot',views.flot,name='flot'),
     path('morris',views.morris,name='morris'),
+    path('chartjs',views.chartjs,name='chartjs'),
 ]
