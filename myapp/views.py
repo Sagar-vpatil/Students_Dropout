@@ -23,3 +23,7 @@ def sparkline(request):
 def peity(request):
     return render(request,'peity.html')
 
+def login(request):
+    return render(request,'login.html')
+
+

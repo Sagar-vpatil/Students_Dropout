@@ -27,5 +27,6 @@ urlpatterns = [
     path('chartist',views.chartist,name='chartist'),
     path('sparkline',views.sparkline,name='sparkline'),
     path('peity',views.peity,name='peity'),
+    path('login',views.login,name='login'),
    
 ]
