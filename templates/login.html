@@ -140,8 +140,8 @@
 					</li>
 					
 					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-						<i class="fa-regular fa-user"></i>
-						<span class="nav-text">Login</span>
+						<i class="fa-solid fa-school"></i>
+						<span class="nav-text">School Login</span>
 					</a>
 					<ul aria-expanded="false">
 						<li><a href="/">login</a></li>
@@ -173,14 +173,7 @@
 						<li class="breadcrumb-item"><a href="javascript:void(0)">School</a></li>
 					</ol>
                 </div>
-				{% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
-     <strong> {{ message }} </strong>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    {% endfor %}
-    {% endif %}
+				
           <section class="position-relative  py-4 py-xl-5" style="margin-top: -30px;">
         <div class="container">
             <div class="row mb-8">
@@ -203,6 +196,14 @@
                                 <div class="mb-3" style="margin-top: 40px;"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
                                 
                             </form>
+							{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert" style="color: red;" >
+     <strong> {{ message }} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
                         </div>
                     </div>
                 </div>
