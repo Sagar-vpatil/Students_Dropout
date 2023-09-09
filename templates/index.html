@@ -135,14 +135,23 @@
 						</ul>
 					</li>
 					
+				
 					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
 						<i class="fa-regular fa-user"></i>
 						<span class="nav-text">Login</span>
 					</a>
+					{% if user.is_authenticated %}
+					<ul aria-expanded="false">
+						<li><a href="/logout">logout</a></li>
+
+					</ul>
+					{% else %}
 					<ul aria-expanded="false">
 						<li><a href="/login">login</a></li>
 
 					</ul>
+				    {% endif %}
+
 				</li>
 					
 					
@@ -159,8 +168,17 @@
 		<!--**********************************
             Content body start
         ***********************************-->
+		{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+     <strong> {{ message }} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
 		<div class="content-body">
 			<!-- row -->
+			
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-xl-12">
@@ -172,8 +190,8 @@
 											<div class="card-body tryal row">
 												<div class="col-xl-7 col-sm-6">
 													<h2>Dropout Student Analysis Ststem</h2>
-													wellcome {{request.user}}
-													<a href="/logout">Logout</a>
+													<!--wellcome {{request.user}}
+													<a href="/logout">Logout</a>-->
 													
 													
 												</div>
