@@ -51,4 +51,7 @@ def logoutUser(request):
     logout(request)
     return render(request,'index.html')
 
+def Uplod(request):
+    logout(request)
+    return render(request,'Uplod.html')
 
