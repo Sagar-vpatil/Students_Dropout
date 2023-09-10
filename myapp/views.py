@@ -56,3 +56,9 @@ def Uplod(request):
         return redirect("/login")
     return render(request,'Uplod.html')
 
+    
+def form(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
+    return render(request,'form.html')
+

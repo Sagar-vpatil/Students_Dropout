@@ -30,5 +30,5 @@ urlpatterns = [
     path('login',views.loginUser,name='login'),
     path('logout',views.logoutUser,name='logout'),
     path('Uplod',views.Uplod,name='Uplod'),
-   
+   path('form',views.form,name='form'),
 ]
