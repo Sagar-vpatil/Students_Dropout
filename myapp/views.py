@@ -52,6 +52,7 @@ def logoutUser(request):
     return render(request,'index.html')
 
 def Uplod(request):
-    logout(request)
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'Uplod.html')
 

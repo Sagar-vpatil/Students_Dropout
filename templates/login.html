@@ -144,7 +144,17 @@
 						<span class="nav-text">School Login</span>
 					</a>
 					<ul aria-expanded="false">
-						<li><a href="/">login</a></li>
+						{% if user.is_authenticated %}
+					<ul aria-expanded="false">
+						<li><a href="/logout">logout</a></li>
+
+					</ul>
+					{% else %}
+					<ul aria-expanded="false">
+						<li><a href="/login">login</a></li>
+
+					</ul>
+				    {% endif %}
 
 					</ul>
 				</li>
@@ -160,6 +170,8 @@
 		<!--**********************************
             Sidebar end
         ***********************************-->
+
+		<!--********************************** Content Body start ***********************************-->
 
 		
         <div class="content-body">
@@ -212,6 +224,8 @@
     </section>
 			</div>
         </div>
+
+<!--************X********************** Content Body end ********************X***************-->
 
 
     <script src="./Sub Pages home/assets/bootstrap/js/bootstrap.min.js"></script> 

@@ -142,15 +142,17 @@
 						<span class="nav-text">Login</span>
 					</a>
 					
+					{% if user.is_authenticated %}
 					<ul aria-expanded="false">
 						<li><a href="/logout">logout</a></li>
 
 					</ul>
-					
+					{% else %}
 					<ul aria-expanded="false">
 						<li><a href="/login">login</a></li>
 
 					</ul>
+				    {% endif %}
 				    
 
 				</li>

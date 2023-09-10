@@ -29,6 +29,6 @@ urlpatterns = [
     path('peity',views.peity,name='peity'),
     path('login',views.loginUser,name='login'),
     path('logout',views.logoutUser,name='logout'),
-     path('Uplod',views.Uplod,name='Uplod'),
+    path('Uplod',views.Uplod,name='Uplod'),
    
 ]
