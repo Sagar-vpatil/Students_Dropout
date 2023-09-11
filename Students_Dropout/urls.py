@@ -30,9 +30,9 @@ urlpatterns = [
     path('login',views.loginUser,name='login'),
     path('logout',views.logoutUser,name='logout'),
     path('Uplod',views.Uplod,name='Uplod'),
-   path('form',views.form,name='form'),
+    path('form',views.form,name='form'),
     path('URL',views.URL,name='URL'),
-      path('excel',views.excel,name='excel'),
+    path('excel',views.excel,name='excel'),
     
 ]
 
