@@ -62,3 +62,13 @@ def form(request):
         return redirect("/login")
     return render(request,'form.html')
 
+       
+def URL(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
+    return render(request,'URL.html')
+
+           
+
+
+
