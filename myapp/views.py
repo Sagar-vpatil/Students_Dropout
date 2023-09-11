@@ -68,6 +68,13 @@ def URL(request):
         return redirect("/login")
     return render(request,'URL.html')
 
+       
+def excel(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
+    return render(request,'excel.html')
+
+
            
 
 
