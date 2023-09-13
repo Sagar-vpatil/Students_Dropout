@@ -194,8 +194,11 @@
                       <h4>Select File here</h4>
                     </header>
                     <p>Files Supported: Excel</p>
-                    <input type="file" hidden accept=".PPTX" id="fileID" style="display:none;">
-                    <button class="btn">Choose File</button>
+					<form method="post" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                       <input type="file" name="myfile">
+                 <button type="submit">Upload</button>
+                  </form>
                   </div>
               
                 </div>

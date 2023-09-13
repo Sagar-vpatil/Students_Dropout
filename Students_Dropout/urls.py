@@ -32,7 +32,7 @@ urlpatterns = [
     path('Uplod',views.Uplod,name='Uplod'),
     path('form',views.form,name='form'),
     path('URL',views.URL,name='URL'),
-    path('excel',views.excel,name='excel'),
+    path('excel',views.simple_upload,name='excel'),
     
 ]
 

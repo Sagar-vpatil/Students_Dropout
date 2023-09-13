@@ -3,8 +3,47 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.contrib.auth import logout
 from django.contrib import messages
+from .models import StudentsInfo
+from .resources import StudentResources
+from tablib import Dataset
+from django.http import HttpResponse
+
 
 # Create your views here.
+
+
+def simple_upload(request):
+    if request.method == "POST" :
+        student_resource = StudentResources()
+        dataset = Dataset()
+        new_student = request.FILES['myfile']
+
+        if not new_student.name.endswith('xlsx'):
+            messages.info(request,'Wrong Format')
+            return render(request,'excel.html')
+        
+        imported_data = dataset.load(new_student.read(),format='xlsx')
+        for data in imported_data:
+            value = StudentsInfo(
+                data[0],
+                data[1],
+                data[2],
+                data[3],
+                data[4],
+                data[5],
+                data[6],
+                data[7],
+                data[8],
+                data[9],
+                data[10],
+                data[11],
+                data[12]
+                
+            )
+
+            value.save()
+        messages.info(request,'Data Uploaded Successfully!')
+    return render(request,'excel.html')
 
 def index(request):
     #if request.user.is_anonymous :
