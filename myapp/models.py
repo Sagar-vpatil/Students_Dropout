@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class StudentsInfo(models.Model):
-    Student_name = models.CharField(max_length=200)
+    Student_name = models.CharField(max_length=200,blank=True)
     Standard = models.CharField(max_length=50)
     Aadhaar_no = models.IntegerField()
     Age = models.IntegerField()
