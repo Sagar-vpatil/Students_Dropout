@@ -37,7 +37,9 @@ def simple_upload(request):
                 data[9],
                 data[10],
                 data[11],
-                data[12]
+                data[12],
+                data[13],
+                data[14]
                 
             )
 
