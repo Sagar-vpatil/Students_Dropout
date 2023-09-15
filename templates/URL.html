@@ -188,16 +188,23 @@
             Content body start
         ***********************************-->
 		<div class="content-body">
-
+			<div class="main-search-input-wrap">
+               <div class="main-search-input fl-wrap">
+				<div class="main-search-input-item">
+					
 			<form action="{% url 'URL' %}" method="post">
 				{%  csrf_token %}
-		   <div class="form-group container m-5">
-			 <label for="url">Enter the url here</label>
-			 <input type="text" name="url" class="form-control" id="url" placeholder="Enter the URL">
-			 <button type="submit" class="btn-success">Submit</button>
-		   </div>
+				
+			 <input type="text" name="url"  id="url" placeholder="Enter the Url of Website">
+				</div>
+			 <button type="submit" class="main-search-button">Submit</button>
+		   
 			</form>
-
+		           </div>
+				   </div>
+            
+			    </div>
+			</div>
            
 
         </div>
