@@ -189,21 +189,16 @@
         ***********************************-->
 		<div class="content-body">
 
+			<form action="{% url 'URL' %}" method="post">
+				{%  csrf_token %}
+		   <div class="form-group container m-5">
+			 <label for="url">Enter the url here</label>
+			 <input type="text" name="url" class="form-control" id="url" placeholder="Enter the URL">
+			 <button type="submit" class="btn-success">Submit</button>
+		   </div>
+			</form>
 
-
-            <div class="main-search-input-wrap">
-       
-     
-                <div class="main-search-input fl-wrap">
-                                                    <div class="main-search-input-item">
-                                                        <input type="URL"  value="" placeholder="Enter URL...">
-                                                    </div>
-                                                    
-                                                    <button class="main-search-button">Upload</button>
-                                                </div>
-                                                
-            
-                                                </div>
+           
 
         </div>
 		<!--**********************************

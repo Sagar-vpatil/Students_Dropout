@@ -7,6 +7,14 @@ from .models import StudentsInfo
 from .resources import StudentResources
 from tablib import Dataset
 from django.http import HttpResponse
+#Rushwan Scrapdata
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
+import requests
+from bs4 import BeautifulSoup
+from bs4.element import Comment
+from django.utils.formats import get_format
+from django.utils import formats
 
 
 # Create your views here.
@@ -104,16 +112,97 @@ def form(request):
     return render(request,'form.html')
 
        
-def URL(request):
-    if request.user.is_anonymous :
-        return redirect("/login")
-    return render(request,'URL.html')
+#def URL(request):
+    #if request.user.is_anonymous :
+        #return redirect("/login")
+    #return render(request,'URL.html')
 
        
 def excel(request):
     if request.user.is_anonymous :
         return redirect("/login")
     return render(request,'excel.html')
+
+
+#Rushwan Scrapdata
+def tag_visible(element):
+    if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
+        return False
+    if isinstance(element, Comment):
+        return False
+    return True
+
+
+def URL(request):
+    if request.method == 'POST':
+        url_to_check = request.POST.get('url')
+        if url_to_check:
+            url_validator = URLValidator()
+            try:
+                url_validator(url_to_check)
+                req = requests.get(url_to_check)
+                soup = BeautifulSoup(req.content, "html.parser")
+                # for re in soup(["thead"]):
+                #     re.extract()
+                # for script in soup(["script", "style", "title", "head", "form", 'meta', '[document]']):
+                #     script.extract()
+                # res = soup.table.text
+                # print(res)
+
+                table = soup.find('table')
+                rows = table.find_all('tr')
+                for row in rows[1:]:  # Skip the header row if present
+                    columns = row.find_all('td')
+                    Student_name = columns[0].text.strip()
+                    standard = columns[1].text.strip()
+                    aadhaar_no = columns[2].text.strip()
+                    age = columns[3].text.strip()
+                    cast = columns[4].text.strip()
+                    phone = columns[5].text.strip()
+                    address = columns[6].text.strip()
+                    city = columns[7].text.strip()
+                    district = columns[8].text.strip()
+                    state = columns[9].text.strip()
+                    gender = columns[10].text.strip()
+                    reason = columns[11].text.strip()
+                    school_name = columns[12].text.strip()
+                    leaving_date = columns[13].text.strip()
+                    print(leaving_date)
+                    # df = DateFormat(date)
+                    # formatted_datetime = formats.date_format(df, "%d-%m-%Y")
+                    # # Df = df.format(get_format('DATE_FORMAT'))
+                    # print(formatted_datetime)
+                    StudentsInfo.objects.create(Student_name=Student_name,Standard =standard,Aadhaar_no=aadhaar_no,Age=age,Cast=cast,Phone=phone, Address=address,City=city,District=district,State=state,Gender=gender,Reason=reason,School_name=school_name,Leaving_date=leaving_date)
+                    print(school_name, city, Student_name, state, leaving_date, reason, phone)
+
+                # for row in rows:
+                #     th = row.find_all('th')
+                #     columns = row.find_all('td')
+                #     for i in th:
+                #         if i.text == "First":
+                #             n = len(i)
+                #         elif i.text == "Last":
+                #             a = len(i)
+                #             print(a)
+                # print(n, a)
+                # for row in rows[1:]:
+                #     th = row.find_all('th')
+                #     columns = row.find_all('td')
+                #     name = columns[a].text.strip()
+                #     address = columns[n].text.strip()
+                #     print(name, address, a)
+
+
+
+            except ValidationError as e:
+
+                error_message = "Invalid URL provided."
+                print(error_message)
+
+        else:
+            error_message = "Please provide a URL."
+            print(error_message)
+    return render(request, 'URL.html')
 
 
            
