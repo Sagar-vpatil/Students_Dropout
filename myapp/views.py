@@ -191,17 +191,17 @@ def URL(request):
                 #     name = columns[a].text.strip()
                 #     address = columns[n].text.strip()
                 #     print(name, address, a)
+                messages.success(request,"Upload Successfully")
 
-
-
+            
             except ValidationError as e:
 
                 error_message = "Invalid URL provided."
-                print(error_message)
+                messages.warning(request,error_message)
 
         else:
             error_message = "Please provide a URL."
-            print(error_message)
+            messages.warning(request,error_message)
     return render(request, 'URL.html')
 
 

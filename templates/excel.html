@@ -196,16 +196,16 @@
     {% endif %}
             <div class="container">
                 <div class="card">
-                  <h3>Upload Files</h3>
+                  <h3>Upload Excel Files</h3>
                   <div class="drop_box">
                     <header>
-                      <h4>Select File here</h4>
+                      <h4>Select Excel File Here</h4>
                     </header>
                     <p>Files Supported: Excel</p>
 					<form method="post" enctype="multipart/form-data" >
                     {% csrf_token %}
                        <input type="file" name="myfile">
-                 <button type="submit" class="btn-success">Upload</button>
+                 <button type="submit" class="btn-submit" style="border-radius: 10px 5px; padding: 5px;"><b>Upload</b></button>
                   </form>
                   </div>
               
