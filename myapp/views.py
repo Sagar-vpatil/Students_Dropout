@@ -58,7 +58,22 @@ def simple_upload(request):
 def index(request):
     #if request.user.is_anonymous :
         #return redirect("/login")
-    return render(request,'index.html')
+    Male_no = StudentsInfo.objects.filter(Gender='Male').count()
+    Male_no = int(Male_no)
+    print(Male_no)
+    Female_no= StudentsInfo.objects.filter(Gender='Female').count()
+    Female_no = int(Female_no)
+    print(Female_no)
+
+    gender_list = ['Male','Female']
+    gender_number =[Male_no,Female_no]
+
+    context = {
+        'gender_list':gender_list,
+        'gender_number':gender_number
+    }
+
+    return render(request,'index.html',context)
 
 def flot(request):
     return render(request,'flot.html')
@@ -167,13 +182,13 @@ def URL(request):
                     reason = columns[11].text.strip()
                     school_name = columns[12].text.strip()
                     leaving_date = columns[13].text.strip()
-                    print(leaving_date)
+                   
                     # df = DateFormat(date)
                     # formatted_datetime = formats.date_format(df, "%d-%m-%Y")
                     # # Df = df.format(get_format('DATE_FORMAT'))
                     # print(formatted_datetime)
                     StudentsInfo.objects.create(Student_name=Student_name,Standard =standard,Aadhaar_no=aadhaar_no,Age=age,Cast=cast,Phone=phone, Address=address,City=city,District=district,State=state,Gender=gender,Reason=reason,School_name=school_name,Leaving_date=leaving_date)
-                    print(school_name, city, Student_name, state, leaving_date, reason, phone)
+                    
 
                 # for row in rows:
                 #     th = row.find_all('th')

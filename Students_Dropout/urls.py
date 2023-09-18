@@ -21,7 +21,6 @@ from myapp import views
 admin.site.site_header = "Studens Dropout Admin"
 admin.site.site_title = "Studens Dropout Portal"
 admin.site.index_title = "Welcome to Studens Dropout Portal"
-
 app_name = 'urls'
 urlpatterns = [
 
