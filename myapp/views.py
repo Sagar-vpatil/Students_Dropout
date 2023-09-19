@@ -60,13 +60,15 @@ def index(request):
         #return redirect("/login")
     Male_no = StudentsInfo.objects.filter(Gender='Male').count()
     Male_no = int(Male_no)
-    print(Male_no)
+   
     Female_no= StudentsInfo.objects.filter(Gender='Female').count()
     Female_no = int(Female_no)
-    print(Female_no)
+    
+    Other = StudentsInfo.objects.filter(Gender='Other').count()
+    Other = int(Other)
 
-    gender_list = ['Male','Female']
-    gender_number =[Male_no,Female_no]
+    gender_list = ['Male','Female','Other']
+    gender_number =[Male_no,Female_no,Other]
 
     context = {
         'gender_list':gender_list,
