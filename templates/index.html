@@ -380,7 +380,7 @@
                                                      <script >
                                                var ctx = document.getElementById('myChart1').getContext('2d');
                                                    var myChart1 = new Chart(ctx, {
-                                                    type: 'doughnut',
+                                                    type: 'pie',
                                                      data: {
                                                      labels: [{% for gender in gender_list %} '{{ gender }}', {% endfor %}],
                                                      datasets: [{

@@ -203,39 +203,42 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Upload Dropout Student Data</h3>
-                                <div class="row register-form">
+                                <form method="post" enctype="multipart/form-data">
+									{% csrf_token %}
+								<div class="row register-form">
+									
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Student Name *" value="" />
+                                            <input type="text" class="form-control" placeholder="Student Name *" value="" name="Sname" />
                                         </div>
 										<div class="form-group">
-                                            <input type="text" class="form-control" placeholder=" Cast *" value="" />
+                                            <input type="text" class="form-control" placeholder=" Cast *" value="" name="cast" />
                                         </div>
                     
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Address *" value="" />
+                                            <input type="text" class="form-control" placeholder="Address *" value="" name="address" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control"  placeholder="City *" value="" />
+                                            <input type="text" class="form-control"  placeholder="City *" value="" name="city"/>
                                         </div>
 										<div class="form-group">
-                                            <input type="text" class="form-control"  placeholder="District *" value="" />
+                                            <input type="text" class="form-control"  placeholder="District *" value="" name="district" />
                                         </div>
 										<div class="form-group">
-                                            <input type="text" class="form-control"  placeholder="State*" value="" />
+                                            <input type="text" class="form-control"  placeholder="State*" value="" name="state"/>
                                         </div>
                                         <div class="form-group">
                                             <div class="maxl">
                                                 <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <input type="radio" name="gender" value="Male" checked>
                                                     <span> Male </span> 
                                                 </label>
                                                 <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
+                                                    <input type="radio" name="gender" value="Female">
                                                     <span>Female </span> 
                                                 </label>
 												<label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="other">
+                                                    <input type="radio" name="gender" value="Other">
                                                     <span>Other </span> 
                                                 </label>
                                             </div>
@@ -244,23 +247,23 @@
                                     <div class="col-md-6">
                         
 										<div class="form-group">
-                                            <input type="no" class="form-control" placeholder=" age*" value="" />
+                                            <input type="no" class="form-control" placeholder=" age*" value="" name="age"/>
                                         </div>
 										<div class="form-group">
-                                            <input type="text" class="form-control" placeholder=" School Name *" value="" />
+                                            <input type="text" class="form-control" placeholder=" School Name *" value="" name="school_name" />
                                         </div>
 										<div class="form-group">
-                                            <input type="text" class="form-control" placeholder=" Dropout Date *" value="" />
+                                            <input type="text" class="form-control" placeholder=" Dropout Date *" value="" name="leave_date"/>
                                         </div>
 										<div class="form-group">
-                                            <input type=" Standaed" class="form-control" placeholder=" Standard*" value="" />
+                                            <input type=" Standaed" class="form-control" placeholder=" Standard*" value="" name="standard"/>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Phone No*" value="" />
+                                            <input type="text" minlength="10" maxlength="10"  class="form-control" placeholder="Phone No*" value="" name="phone" />
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control">
+                                            <select class="form-control" name="reason">
                                                 <option class="hidden"  selected disabled>Select Droput Reason</option>
                                                 <option>Financial</option>
                                                 <option>Business Mindset</option>
@@ -274,11 +277,13 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Aadhar No*" value="" />
+                                            <input type="text" class="form-control" placeholder="Aadhar No*" value="" name="aadhaar" />
                                         </div>
-                                        <input type="submit" class="btnRegister"  value="upload"/>
+                                        <button type="submit" class="btnRegister" >Submit</button>
                                     </div>
+									
                                 </div>
+							</form>
                             </div>
                         </div>
 		<!--**********************************

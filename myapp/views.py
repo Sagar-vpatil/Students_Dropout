@@ -124,8 +124,29 @@ def Uplod(request):
 
     
 def form(request):
-    if request.user.is_anonymous :
-        return redirect("/login")
+    if request.method == "POST" :
+         student_name = request.POST.get('Sname')
+         standard = request.POST.get('standard')
+         aadhaar_no= request.POST.get('aadhaar')
+         age = request.POST.get('age')
+         cast = request.POST.get('cast')
+         phone = request.POST.get('phone')
+         address = request.POST.get('address')
+         city = request.POST.get('city')
+         district = request.POST.get('district')
+         state = request.POST.get('state')
+         gender = request.POST.get('gender')
+         reason = request.POST.get('reason')
+         school_name = request.POST.get('school_name')
+         leaving_date = request.POST.get('leave_date')
+         students_info = StudentsInfo(Student_name=student_name,Standard=standard,Aadhaar_no=aadhaar_no,Age=age,Cast=cast,Phone=phone,
+           Address=address,City=city,District=district,State=state,Gender=gender,Reason=reason,School_name=school_name,Leaving_date=leaving_date)
+         students_info.save()
+         messages.success(request, "Student data has been submited!")
+         return render(request,'form.html')
+         
+
+
     return render(request,'form.html')
 
        
