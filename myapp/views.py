@@ -58,6 +58,7 @@ def simple_upload(request):
 def index(request):
     #if request.user.is_anonymous :
         #return redirect("/login")
+    #Queries-Gender
     Male_no = StudentsInfo.objects.filter(Gender='Male').count()
     Male_no = int(Male_no)
    
@@ -70,9 +71,47 @@ def index(request):
     gender_list = ['Male','Female','Other']
     gender_number =[Male_no,Female_no,Other]
 
+    #Queries-Cast
+    obc = StudentsInfo.objects.filter(Cast='OBC').count()
+    obc = int(obc)
+
+    Open = StudentsInfo.objects.filter(Cast='Open').count()
+    Open = int(Open)
+
+    St = StudentsInfo.objects.filter(Cast='ST').count()
+    St = int(St)
+
+    Sc = StudentsInfo.objects.filter(Cast='SC').count()
+    Sc= int(Sc)
+
+    cast_list =['Open','OBC','SC','ST']
+    cast_number =[Open,obc,Sc,St]
+
+    #Queries-District
+    ahmedabad= StudentsInfo.objects.filter(District='Ahmedabad').count()
+    ahmedabad = int(ahmedabad)
+
+    surat = StudentsInfo.objects.filter(District='Surat').count()
+    surat = int(surat)
+
+    bhavnagar = StudentsInfo.objects.filter(District='Bhavnagar').count()
+    bhavnagar = int(bhavnagar)
+
+    bharuch = StudentsInfo.objects.filter(District='Bharuch').count()
+    bharuch = int(bharuch)
+
+    district_list =['Ahmedabad','Bhavnagar','Surat','Bharuch']
+    district_number=[ahmedabad,bhavnagar,surat,bharuch]
+
+
     context = {
         'gender_list':gender_list,
-        'gender_number':gender_number
+        'gender_number':gender_number,
+        'cast_list':cast_list,
+        'cast_number':cast_number,
+        'district_list':district_list,
+        'district_number':district_number
+
     }
 
     return render(request,'index.html',context)
