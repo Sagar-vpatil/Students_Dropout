@@ -4,16 +4,13 @@
     padding: 0;
   }
   
-  body {
-    font-family: sans-serif;
-  }
   
   a {
     text-decoration: none;
     color: black;
     font-size: 1.2rem;
     font-weight: bold;
-    text-transform: uppercase;
+    
   }
   .nav {
     background-color: #87CEEB	;
@@ -91,6 +88,5 @@
     text-align: center;
     padding-top: 34px;
     padding-bottom: 34px;
-    text:bold;
     color: black;
   }

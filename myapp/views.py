@@ -103,6 +103,9 @@ def index(request):
     district_list =['Ahmedabad','Bhavnagar','Surat','Bharuch']
     district_number=[ahmedabad,bhavnagar,surat,bharuch]
 
+    total_students = StudentsInfo.objects.count()
+    
+
 
     context = {
         'gender_list':gender_list,
@@ -110,32 +113,47 @@ def index(request):
         'cast_list':cast_list,
         'cast_number':cast_number,
         'district_list':district_list,
-        'district_number':district_number
+        'district_number':district_number,
+        'total_students':total_students
 
     }
 
     return render(request,'index.html',context)
 
 def flot(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'flot.html')
 
 def morris(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'morris.html')
     
 def chartjs(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'chartjs.html')
 
 def chartist(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'chartist.html')
 
 def sparkline(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'sparkline.html')
 
 def peity(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'peity.html')
 
 
 def Format(request):
+    if request.user.is_anonymous :
+        return redirect("/login")
     return render(request,'Format.html')
 
 

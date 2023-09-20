@@ -93,7 +93,7 @@
 					<div class="collapse navbar-collapse justify-content-between">
 						<div class="header-left">
 							<div class="dashboard_bar">
-								Dashboard
+							 Submit Form
 							</div>
 						</div>
 				</nav>
@@ -118,7 +118,7 @@
 							<li><a href="/">Dashboard</a></li>
 							
 							
-							<li><a href="calendar-page.html">Help</a></li>
+							<li><a href="/Format">Format</a></li>
 							
 						</ul>
 
@@ -141,8 +141,8 @@
 					
 				
 					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-						<i class="fa-regular fa-user"></i>
-						<span class="nav-text">Login</span>
+						<i class="fa-solid fa-school"></i>
+						<span class="nav-text">School Login</span>
 					</a>
 					
 					{% if user.is_authenticated %}
@@ -188,6 +188,14 @@
             Content body start
         ***********************************-->
 		<div class="content-body">
+			{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+     <strong> {{ message }} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
             <div class="container register">
                 <div class="row">
                     <div class="col-md-3 register-left">
