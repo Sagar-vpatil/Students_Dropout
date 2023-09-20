@@ -134,6 +134,12 @@ def sparkline(request):
 def peity(request):
     return render(request,'peity.html')
 
+
+def Format(request):
+    return render(request,'Format.html')
+
+
+
 def loginUser(request):
     if request.method == "POST" :
         username = request.POST.get('username')
