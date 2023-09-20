@@ -60,7 +60,7 @@
             Nav header start
         ***********************************-->
 		<div class="nav-header">
-			<a href="index.html" class="brand-logo">
+			<a href="/" class="brand-logo">
 				<img src="/static/images/Govt-logo.png"
 					alt="" style=" width:70px; clip-path: circle();">
 				
@@ -112,7 +112,7 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="index.html">Dashboard Dark</a></li>
+							<li><a href="/">Dashboard</a></li>
 							
 							
 							<li><a href="calendar-page.html">Help</a></li>
@@ -184,6 +184,14 @@
         <!--**********************************
             Content body start
         ***********************************-->
+		{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+     <strong> {{ message }} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
         <div class="content-body">
             
 {% comment %} <!-----------------uplod card start-----------------------------------> {% endcomment %}

@@ -56,8 +56,8 @@ def simple_upload(request):
     return render(request,'excel.html')
 
 def index(request):
-    #if request.user.is_anonymous :
-        #return redirect("/login")
+    if request.user.is_anonymous :
+        return redirect("/login")
     #Queries-Gender
     Male_no = StudentsInfo.objects.filter(Gender='Male').count()
     Male_no = int(Male_no)
@@ -142,7 +142,7 @@ def loginUser(request):
         if user is not None:
             login(request,user)
             messages.success(request, "Logged Successfully!")
-            return redirect("/")
+            return redirect("/Uplod")
     
         else:
             messages.success(request, "Please Enter Valid Password And Unsername!")
@@ -154,7 +154,7 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    return render(request,'index.html')
+    return render(request,'login.html')
 
 def Uplod(request):
     if request.user.is_anonymous :
@@ -219,12 +219,6 @@ def URL(request):
                 url_validator(url_to_check)
                 req = requests.get(url_to_check)
                 soup = BeautifulSoup(req.content, "html.parser")
-                # for re in soup(["thead"]):
-                #     re.extract()
-                # for script in soup(["script", "style", "title", "head", "form", 'meta', '[document]']):
-                #     script.extract()
-                # res = soup.table.text
-                # print(res)
 
                 table = soup.find('table')
                 rows = table.find_all('tr')
@@ -245,29 +239,9 @@ def URL(request):
                     school_name = columns[12].text.strip()
                     leaving_date = columns[13].text.strip()
                    
-                    # df = DateFormat(date)
-                    # formatted_datetime = formats.date_format(df, "%d-%m-%Y")
-                    # # Df = df.format(get_format('DATE_FORMAT'))
-                    # print(formatted_datetime)
                     StudentsInfo.objects.create(Student_name=Student_name,Standard =standard,Aadhaar_no=aadhaar_no,Age=age,Cast=cast,Phone=phone, Address=address,City=city,District=district,State=state,Gender=gender,Reason=reason,School_name=school_name,Leaving_date=leaving_date)
                     
 
-                # for row in rows:
-                #     th = row.find_all('th')
-                #     columns = row.find_all('td')
-                #     for i in th:
-                #         if i.text == "First":
-                #             n = len(i)
-                #         elif i.text == "Last":
-                #             a = len(i)
-                #             print(a)
-                # print(n, a)
-                # for row in rows[1:]:
-                #     th = row.find_all('th')
-                #     columns = row.find_all('td')
-                #     name = columns[a].text.strip()
-                #     address = columns[n].text.strip()
-                #     print(name, address, a)
                 messages.success(request,"Upload Successfully")
 
             
