@@ -42,6 +42,9 @@ Three convenient ways for schools to upload dropout data:
 ### **Backend**
 - **Python** with **Django** framework.
 
+### **Database**
+- **SQLite3** for local and lightweight database storage.
+
 ### **Python Libraries**
 - **BeautifulSoup**: For data scraping tasks.
 - **openpyxl**: For parsing and processing Excel files.
